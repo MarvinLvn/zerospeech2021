@@ -132,7 +132,7 @@ def load_data(gold_file, submission_file):
             {'frequency': pandas.Int64Dtype()})
     score = pandas.read_csv(
         submission_file, sep=' ', header=None,
-        names=['filename', 'score'], index_col='filename')
+        names=['filename', 'score'], usecols=[0, 1], index_col='filename')
 
     # ensures the filenames in gold and submission are the same
     if set(gold.index) != set(score.index):
